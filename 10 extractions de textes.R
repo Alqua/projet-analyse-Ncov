@@ -75,3 +75,7 @@ read.csv("4444.csv",encoding = "UTF-8")
 
 ##et attention aux sys locale a remettre ou non
 Sys.setlocale("LC_CTYPE","French_Switzerland.1252")
+
+
+Sys.getlocale()
+Sys.setlocale(category = "LC_ALL", locale = "chinese")
