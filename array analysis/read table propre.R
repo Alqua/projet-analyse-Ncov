@@ -67,6 +67,7 @@ z2 <- z %>%
                                grepl("yystv", url) ~ "yystv",
                                grepl("zhishifenzi", url) ~ "zhishifenzi",
                                grepl("zhisland", url) ~ "zhisland",
+                               grepl("", url) ~ "no_url",
      ))
 
 ##place column url_new next to url for easier comparison
@@ -126,6 +127,33 @@ hist(censored_media_count$Freq, main="number of censored article per media",col=
 censored_date_count <- as.data.frame(table(censored_articles$date))
 
 ##essai plot
-plot1 <- ggplot(censored_date_count, aes(x=Var1)) + geom_bar(stat = "Freq") + labs(title="Frequency bar chart")  # Y axis derived from counts of X item
+plot1error <- ggplot(censored_date_count, aes(x=Var1)) + geom_bar() + labs(title="Frequency bar chart")  # Y axis derived from counts of X item
 print(plot1)
 
+qplot(date, data=data, fill=category)
+qplot(media, data=data, fill=category, facets = 4)
+
+g <- ggplot(data=censored_media_count, aes(x=Var1,y= Freq,)) +
+  geom_bar(position="dodge",stat="identity") + 
+  coord_flip() +
+  ggtitle("Number of articles per Media")
+
+ggsave(plot = g, width = 6, height = 20, filename = "test.jpg")
+
+##sort dataframe by the column we want for this graph, mutate create new col?
+
+data2<- mutate(data, fct_infreq(data$media)) 
+
+##rename new col
+data2 <-rename(data2, media_ordered = "fct_infreq(data$media)")
+
+## create and save plot
+
+x <- ggplot(data2, aes(factor(media_ordered), fill=category))
+
+y <- x+geom_bar()+coord_flip()+ggtitle("Number of articles per Media")
+
+ggsave(plot = y, width = 6, height = 20, filename = "testxxx.jpg")
+
+##check if "PlantifulSoul" is only narrative as in the graph
+Planti <- filter(data, media=="PlantifulSoul")
