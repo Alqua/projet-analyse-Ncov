@@ -1,0 +1,1 @@
+I started to create my graph with "graph_media.R". I suggest to start reading the code from there. The code files contain some other graphs not published in jpg here, notably some with a count at the end of the bar.
