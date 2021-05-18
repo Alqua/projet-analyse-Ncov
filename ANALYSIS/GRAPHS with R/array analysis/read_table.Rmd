@@ -1,0 +1,132 @@
+---
+title: "read table propre"
+output: html_document
+---
+
+## First analysis of data.csv
+
+```{r}
+library(data.table)
+library(dplyr)
+library(scales)
+```
+
+reading the data:
+```{r}
+data <- fread("data.csv", key = "id", encoding = "UTF-8")
+```
+
+while downloading the articles, I noticed that the "id" column does not match the total number of articles. "id" goes up to 4902 while the number of row is 4881. Let's check which "id"s are missing
+
+```{r}
+x <- c(1:4902)
+t <- data[["id"]]
+## substract full column x (count to 4902) minus "id"s column (t)
+##what is left are the number of the missing ids
+missing_id <- setdiff(x,t)
+print (missing_id)
+```
+
+Let's verify that we found all of them
+
+```{r}
+print(length(missing_id))
+
+print(4902-4881)
+```
+The result are equal, we did find them all! 
+
+Now, let's add a clean URL column and place it next to url for easier comparison
+```{r}
+z2 <- data %>%  
+    mutate(url_new = case_when(grepl("weixin", url) ~ "weixin",
+                               grepl("caixin", url) ~"caixin",
+                               grepl("weibo", url) ~ "weibo",
+                               grepl("bjnews", url) ~ "bjnews",
+                               grepl("cb", url) ~ "cb",
+                               grepl("ceweekly", url) ~ "ceweekly",
+                               grepl("chuapp", url) ~ "chuapp",
+                               grepl("dxy", url) ~ "dxy",
+                               grepl("eeo", url) ~ "eeo",
+                               grepl("gcores", url) ~ "gcores",
+                               grepl("ifeng", url) ~ "ifeng",
+                               grepl("inews.qq", url) ~ "inews.qq",
+                               grepl("infzm", url) ~ "infzm",
+                               grepl("jiemian", url) ~ "jiemian",
+                               grepl("new.qq", url) ~ "new.qq",
+                               grepl("neweekly", url) ~ "neweekly",
+                               grepl("oeeee", url) ~ "oeeee",
+                               grepl("sohu", url) ~ "sohu",
+                               grepl("thepaper", url) ~ "thepaper",
+                               grepl("titan24", url) ~ "titan24",
+                               grepl("toutiao", url) ~ "toutiao",
+                               grepl("whb", url) ~ "whb",
+                               grepl("wxn", url) ~ "wxn",
+                               grepl("xueqiu", url) ~ "xueqiu",
+                               grepl("yicai", url) ~ "yicai",
+                               grepl("yystv", url) ~ "yystv",
+                               grepl("zhishifenzi", url) ~ "zhishifenzi",
+                               grepl("zhisland", url) ~ "zhisland",
+                               grepl("", url) ~ "no_url",
+     ))
+
+
+
+z2 <- z2 %>% select(1:8, last_col(),everything())
+```
+after adding this column, we can check the repartition of artices per publication website
+``` {r}
+##repartition of articles within url
+repartition <- as.data.table(table(z2$url_new))
+repartition <- setorder(repartition, -N)
+print(repartition)
+```
+
+percentage weixin (wechat)
+```{r}
+print(label_percent(accuracy = 0.01)(4059/4881))
+```
+
+percentage caixin
+```{r}
+print(label_percent(accuracy = 0.01)(452/4881))
+```
+# Censored articles
+count censored articles
+```{r}
+censored_articles <- data[, is_deleted]
+print(sum(censored_articles, na.rm = TRUE))
+```
+Percentage of censored articles
+```{r}
+print(label_percent(accuracy = 0.01)(149/4425))
+```
+number of non fiction writing in the censored articles
+```{r}
+## select censored articles
+censored_articles <- data[data$is_deleted==TRUE]
+
+##non-fiction is TRUE
+table(censored_articles$category %in% c("non_fiction"))
+## in percentage non fiction
+cat("percentage of non-fiction articles in censored_articles: ", label_percent(accuracy = 0.01)(107/149),'\n')
+
+## in percentage narrative
+cat("percentage narrative articles in censored_articles:", label_percent(accuracy = 0.01)(42/149),'\n')
+
+```
+
+Count of censored articles per media
+```{r}
+censored_media_count <- as.data.table(table(censored_articles$media))
+censored_media_count <-setorder(censored_media_count, -N)
+print(censored_media_count)
+```
+
+Count of censored articles per date
+```{r}
+censored_date_count <- as.data.frame(table(censored_articles$date))
+print(censored_date_count)
+```
+
+This was some basic analysis only. In order to continue to discover the data, we are going to make some graphs with ggplot, in another files.
