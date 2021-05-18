@@ -9,9 +9,9 @@ In this repo, both the code to generate the analysis results' and the results ar
 The analysis complement the master thesis I wrote, in french, on the subject. The thesis is not available on this website but if you are interested, you can contact me.
 
 The repo is divided into two main folder , [DRAFT](https://github.com/Alqua/projet-analyse-Ncov/tree/master/DRAFT) and [ANALYSIS](https://github.com/Alqua/projet-analyse-Ncov/tree/master/ANALYSIS). I did three kind of analysis:
--Data graphs on articles
--LDA theme analysis
--Maps
+- Data graphs on articles
+- LDA theme analysis
+- Maps
 
 ## DRAFT
 contains the first analysis I made on an earlier version of the nCovMemory database. I won't be commenting the files of this folder as much as the other but it can be interesting to have a look. The process I went through with those analysis lead to choices made with the actual analysis presented.
