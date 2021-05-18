@@ -1,5 +1,3 @@
-[TOC]
-
 # Description of the dataframes:
 
 ## data.csv
