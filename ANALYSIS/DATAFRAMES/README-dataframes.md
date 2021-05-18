@@ -19,5 +19,8 @@ is a dataframe made out of `data.csv` and `2019-nCoV Stories for Translation-She
 
 is a dataframes that I created to easily compare the english titles from the original `data.csv` and `2019-nCoV Stories for Translation-Sheet1.csv`. Only the rows populated with english titles from `data_with_en.csv` have been kept.
 
+## 8subjects+fr.csv
+contains the lists of word of the 8 subjects of the second LDA analysis and their french translation.
+
 ## code merging files
 is a folder containing a jupyter notebook I wrote to merge some of those dataframes.
