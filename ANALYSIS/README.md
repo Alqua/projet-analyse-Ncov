@@ -14,4 +14,4 @@ continues with [CLEANING articles](https://github.com/Alqua/projet-analyse-Ncov/
 the files aren't available yet.
 
 # [DATFRAMES](https://github.com/Alqua/projet-analyse-Ncov/tree/master/ANALYSIS/DATAFRAMES)
-Contains dataframes used to generate the analysis or dataframes generated for analysis. It could also be considered as another form of analysis.
+This folder contains dataframes used in the analysis or dataframes especially created for analysis.

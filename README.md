@@ -14,7 +14,7 @@ The repo is divided into two main folder , [DRAFT](https://github.com/Alqua/proj
 - Maps
 
 ## DRAFT
-contains the first analysis I made on an earlier version of the nCovMemory database. I won't be commenting the files of this folder as much as the other but it can be interesting to have a look. The process I went through with those analysis lead to choices made with the actual analysis presented.
+contains the first analysis I made on an earlier version of the nCovMemory database. I won't be commenting the files in this folder as much as the other but it can be interesting to have a look. The process I went through with those analysis lead to choices made with the actual analysis presented.
 
 ## ANALYSIS
 Contains the analysis I actually used and the code to generate them. Each folder contains another README describing the content of the folder and some brief explainations.

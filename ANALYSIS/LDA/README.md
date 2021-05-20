@@ -15,4 +15,4 @@ Contains the result of the LDA analysis. What is published on the [website](http
 contains an html version of LDA2.ipynb
 
 ## jieba_lists
-Contains files to cut words and removing stopwords. First `UserWords.txt` is used as an argument to jieba in order to give a cutting priority to certain words. `stopwords.txt` is then using with a function I created to remove stopwords
+Contains files to cut words and removing stopwords. First `UserWords.txt` is used as an argument to jieba in order to give a cutting priority to certain words. `stopwords.txt` is then used with a function I created to remove stopwords
