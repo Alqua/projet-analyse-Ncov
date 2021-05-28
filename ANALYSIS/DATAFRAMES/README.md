@@ -24,3 +24,4 @@ contains the lists of word of the 8 subjects of the second LDA analysis and thei
 
 ## code merging files
 is a folder containing a jupyter notebook I wrote to merge some of those dataframes.
+(This jupyter notebook does not end with merging but continues to generate the map "Number of articles per publication's places")

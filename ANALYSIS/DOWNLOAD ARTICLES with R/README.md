@@ -1,6 +1,7 @@
 # Introduction:encoding troubles
 I first started to create this function to download all the articles from the list of link to an archiving website (mostly archive.today) using windows. I had many problems with encoding the character because windows does not really support UTF-8 at a system level, even though they seem to be slowly starting to work on that. That is the reason behind the changes of system language within R studio with: `Sys.setlocale("LC_CTYPE","chinese")`. I must also say that encoding problems will also depend on the base language chosen in windows, if a user selected chinese, that won't likely create any problem to encode chinese.
 After a change in hardware, I started to code in a linux virtual machine using VMWare and all encoding problems were gone :)
+If you are using windows and you have encoding problems,`Sys.setlocale` might be a fix, if you are on linux or mac, you can just ignore it.
 
 # File description
 ## function extract texts from list of webpage links.R
