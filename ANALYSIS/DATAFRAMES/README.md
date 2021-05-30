@@ -22,6 +22,9 @@ is a dataframes that I created to easily compare the english titles from the ori
 ## 8subjects+fr.csv
 contains the lists of word of the 8 subjects of the second LDA analysis and their french translation.
 
+## df_texts_with_index.csv
+dataframe containing all the cleaned articles and their matching IDs, with an index. It is used for the LDA analysis and the places' occurence map.
+
 ## code merging files
 is a folder containing a jupyter notebook I wrote to merge some of those dataframes.
 (This jupyter notebook does not end with merging but continues to generate the map "Number of articles per publication's places")

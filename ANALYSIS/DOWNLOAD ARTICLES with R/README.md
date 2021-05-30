@@ -11,3 +11,6 @@ I saved the files naming them with the articles'id + ".csv" extension. Looking b
 
 ## use of function and downloading articles.R
 The code I actually used to download the article. How to start the function, re-start it, check for missing files,etc.
+
+## Note
+I do not provide the downloaded articles in this repo but a dataframe containing all the cleaned text is available in the [DATAFRAMES](https://github.com/Alqua/projet-analyse-Ncov/tree/master/ANALYSIS/DATAFRAMES) folder.
