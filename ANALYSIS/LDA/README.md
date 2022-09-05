@@ -19,4 +19,4 @@ Contains files to cut words and removing stopwords. First `UserWords.txt` is use
 
 ## cleaned-caixin_LDA
 
-After the main analysis I did, I realized some of the data hasn't been properly cleaned. All the articles from caixin formed a category by themselves because they contained the same header for each article. I deleted this lines [here]() and generated the lda analysis again. Those new analysis are contained in this directory.
+After the main analysis I did, I realized some of the data hasn't been properly cleaned. All the articles from caixin formed a category by themselves because they contained the same header for each article. I deleted this lines [here](https://github.com/Alqua/projet-analyse-Ncov/tree/master/ANALYSIS/CLEANING%20articles/cleaning-caixin) and generated the lda analysis again. Those new analysis are contained in this directory.
