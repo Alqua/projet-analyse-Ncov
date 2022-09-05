@@ -18,3 +18,6 @@ I thought about using a script to directly selecting only mandarin character wit
 `checkfiles.py` is then used again to check if any files is empty.
 
 `articles_vides_bas.md` lists all the articles which were empty and states what has been done with it. This document is in french though. Most decision was if the article has been retrieved through a copy/past (copié/collé) of the webpage or if it was not possible to do that and why. In that case, the article was deleted (supprimé). I also had to redo the whole process once I noticed that I did not use the last version of data.csv the first time, this is also present in this files. And I checked as well some articles which had a number of character suprisingly low. A few contained errors but the majority were articles presenting images.
+
+### cleaning-caixin
+This directory contains the script I used once I discovered that all the articles from caixin had not been cleaned properly. They all contained a header with the same words and therefore creating a category by themselves. I deleted those lines.

@@ -16,3 +16,7 @@ contains an html version of LDA2.ipynb
 
 ## jieba_lists
 Contains files to cut words and removing stopwords. First `UserWords.txt` is used as an argument to jieba in order to give a cutting priority to certain words. `stopwords.txt` is then used with a function I created to remove stopwords
+
+## cleaned-caixin_LDA
+
+After the main analysis I did, I realized some of the data hasn't been properly cleaned. All the articles from caixin formed a category by themselves because they contained the same header for each article. I deleted this lines [here]() and generated the lda analysis again. Those new analysis are contained in this directory.
